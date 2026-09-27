@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubBoost - Grow Your YouTube Channel</title>
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --bg-light: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-grey: #4a4a4a;
+            --accent-border: #3d3d3d;
+            --button-bg: #ffffff;
+            --button-text: #121212;
+            --highlight: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--accent-border);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+        }
+
+        .logo span {
+            color: #888888;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--accent-border);
+            border-radius: 12px;
+            padding: 30px;
+            width: 280px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--highlight);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .card .price {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .card ul {
+            list-style: none;
+            margin-bottom: 25px;
+            color: var(--text-secondary);
+            text-align: left;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "?";
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #cccccc;
+        }
+
+        /* Checkout Modal/Section */
+        .order-section {
+            background-color: var(--bg-card);
+            max-width: 600px;
+            margin: 40px auto 80px;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--accent-border);
+        }
+
+        .order-section h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-light);
+            border: 1px solid var(--accent-border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        .qr-box {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .qr-box img {
+            width: 180px;
+            height: 180px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--bg-card);
+            color: var(--text-secondary);
+            border-top: 1px solid var(--accent-border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo">Sub<span>Boost</span></div>
+        <nav>
+            <a href="#plans">Plans</a>
+            <a href="#order">Order Now</a>
+            <a href="#contact">Support</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>???? YouTube ???? ?? ???? ?? ???? ????</h1>
+        <p>???? ?? ???????? ????? ?? ??????? ??????????? ??????? ???? ????? ?? ???????? ???????</p>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing-section" id="plans">
+        <h2>????? ?????? (Select Your Plan)</h2>
+        <div class="cards-container">
+            <!-- Plan 1 -->
+            <div class="card">
+                <h3>Starter Plan</h3>
+                <div class="price">?20</div>
+                <ul>
+                    <li>50 Subscribers</li>
+                    <li>Fast Delivery (24 Hours)</li>
+                    <li>No Password Needed</li>
+                    <li>Safe & Secure</li>
+                </ul>
+                <a href="#order" class="btn" onclick="selectPlan('?20 - 50 Subscribers')">Select Plan</a>
+            </div>
+
+            <!-- Plan 2 -->
+            <div class="card">
+                <h3>Standard Plan</h3>
+                <div class="price">?50</div>
+                <ul>
+                    <li>150 Subscribers</li>
+                    <li>Fast Delivery</li>
+                    <li>Real Subscribers</li>
+                    <li>24/7 Support</li>
+                </ul>
+                <a href="#order" class="btn" onclick="selectPlan('?50 - 150 Subscribers')">Select Plan</a>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="card">
+                <h3>Pro Plan</h3>
+                <div class="price">?100</div>
+                <ul>
+                    <li>350 Subscribers</li>
+                    <li>Instant Start</li>
+                    <li>High Retention</li>
+                    <li>VIP Support</li>
+                </ul>
+                <a href="#order" class="btn" onclick="selectPlan('?100 - 350 Subscribers')">Select Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order & Payment Form -->
+    <section class="order-section" id="order">
+        <h3>????? ?? ?????? ????</h3>
+        <form id="orderForm" onsubmit="submitOrder(event)">
+            <div class="form-group">
+                <label for="channelLink">YouTube Channel Link / URL</label>
+                <input type="url" id="channelLink" placeholder="https://youtube.com/@yourchannel" required>
+            </div>
+
+            <div class="form-group">
+                <label for="selectedPlan">???? ??? ????? (Selected Plan)</label>
+                <select id="selectedPlan" required>
+                    <option value="?20 - 50 Subscribers">?20 ??? 50 Subscribers</option>
+                    <option value="?50 - 150 Subscribers">?50 ??? 150 Subscribers</option>
+                    <option value="?100 - 350 Subscribers">?100 ??? 350 Subscribers</option>
+                </select>
+            </div>
+
+            <!-- Payment Instructions -->
+            <div class="qr-box">
+                <p style="margin-bottom: 10px;">????? ???? UPI ?? ?????? ????:</p>
+                <!-- ???? ???? QR ??? ???? ????? -->
+                <img src="https://via.placeholder.com/180?text=Your+UPI+QR" alt="UPI QR Code">
+                <p style="margin-top: 10px; font-weight: bold;">UPI ID: yourname@upi</p>
+            </div>
+
+            <div class="form-group">
+                <label for="txnId">Payment Transaction ID / UTR Number</label>
+                <input type="text" id="txnId" placeholder="12 ????? ?? UTR / Txn ID ???? ????" required>
+            </div>
+
+            <button type="submit" class="btn">????? ??????? ???? (Submit Order)</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SubBoost. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function selectPlan(planText) {
+            document.getElementById('selectedPlan').value = planText;
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            const link = document.getElementById('channelLink').value;
+            const plan = document.getElementById('selectedPlan').value;
+            const txn = document.getElementById('txnId').value;
+
+            alert(???????! ???? ????? ??????? ?? ??? ???\n\n????: ${link}\n?????: ${plan}\nTxn ID: ${txn}\n\n?? 24 ???? ?? ???? ??????????? ?????? ???? ?? ??????);
+        }
+    </script>
+</body>
+</html>
